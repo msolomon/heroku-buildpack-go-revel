@@ -271,3 +271,15 @@ echo "Dependencies installed" | indent
 echo "-----> Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
 echo "export PATH=\"\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\"" > $BUILD_DIR/.profile.d/nodejs.sh
+
+echo "=================================="
+echo "-----> installing npm"
+curl https://npmjs.org/install.sh | sh
+
+echo "-----> installing node packages"
+npm -g install grunt-cli
+npm -g install jamjs
+npm install
+
+echo "-----> running jam"
+jam install
